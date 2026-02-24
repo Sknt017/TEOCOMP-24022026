@@ -4,6 +4,8 @@
  */
 package regexvalidator;
 
+import regexvalidator.Vista.VistaPrincipal;
+
 /**
  *
  * @author dasan
@@ -15,6 +17,8 @@ public class RegexValidator {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        VistaPrincipal vp = new VistaPrincipal();
+        vp.setVisible(true);
     }
     
 }

@@ -7,6 +7,7 @@ package regexvalidator.Vista;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import regexvalidator.Modelo.dataManager;
 
 /**
  *
@@ -84,8 +85,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTxtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTxtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                         .addComponent(jTxtEmail))
                     .addComponent(jTxtSci, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtEntero, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -149,12 +150,28 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
         // check if jTxtEntero has only numbers in his getText
-        String entero = this.jTxtEntero.getText();
-        if (Pattern.matches("^\\d+$", entero)){
-            System.out.println("Regex Num .Entero OK");
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "El numero registrado no es valido.");
-        }
+//        String cadEntero = this.jTxtEntero.getText();
+//        try{
+//            Float enteReal = Float.valueOf(cadEntero);
+//        }catch(NumberFormatException e){    
+//            JOptionPane.showMessageDialog(rootPane, "El numero registrado no es valido.");
+//        }
+//        
+        String enteroReal = this.jTxtEntero.getText();
+        String nombre = this.jTxtNombre.getText();
+        String apellido = this.jTxtApellido.getText();      
+        String Email = this.jTxtEmail.getText();
+        String numExp = this.jTxtSci.getText();
+        
+        dataManager dM = new dataManager();
+        
+        dM.llamadaDatos(enteroReal, numExp, nombre, apellido, Email);
+        
+//        if (Pattern.matches("^\\d+$", entero)){
+//            System.out.println("Regex Num .Entero OK");
+//        }else{
+//            JOptionPane.showMessageDialog(rootPane, "El numero registrado no es valido.");
+//        }
 
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
